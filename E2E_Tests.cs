@@ -28,9 +28,24 @@ namespace CoypuTests
             };
 
             var browser = new BrowserSession(sessionConfiguration);
+            //browser.MaximiseWindow();
             browser.Visit("demosite/Login.html");
-            browser.Dispose();
 
+            if (browser.Title == "Execute Automation")
+            {
+                Console.WriteLine("It works!!!");
+            }
+
+            browser.FillIn("UserName").With("Roman");
+            browser.FillIn("Password").With("12345");
+            browser.ClickButton("Login");
+
+
+            browser.Dispose();
+           
+
+
+            
         }
 
         [TearDown]
